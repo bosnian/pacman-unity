@@ -45,6 +45,7 @@ public class GameStats : MonoBehaviour {
 	public static GameObject playerRef;
 
 	public static int score = 0;
+	public static int totalPoints = 0;
 	public static int lives = 3;
 
 	public const string pointLegend = "0";
@@ -91,6 +92,8 @@ public class GameStats : MonoBehaviour {
 				}
 			}
 		} 
+
+		totalPoints = points.Count;
 	}
 
 	static string[][] readMapFromFile(string fileName){
@@ -150,6 +153,11 @@ public class GameStats : MonoBehaviour {
 
 				scoreText.text = score.ToString ("D3");
 			}
+		}
+
+		if (score == totalPoints) {
+			scoreText.text = "WINN!";
+			Time.timeScale = 0;
 		}
 	}
 
