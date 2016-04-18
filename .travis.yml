@@ -4,6 +4,6 @@ language: objective-c
 rvm:
 - 2.1.2
 install:
-- ./Uitl/install.sh
+- ./Util/install.sh
 script:
 - ./Util/build.sh
