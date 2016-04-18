@@ -12,6 +12,7 @@ echo "Attempting to build $project for Web"
   -silent-crashes \
   -logFile $(pwd)/unity.log \
   -projectPath $(pwd) \
+  -buildWebPlayer "$(pwd)/Build/web" \
   -buildTarget "webgl" \
   -quit
 
