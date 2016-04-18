@@ -7,3 +7,6 @@ install:
 - ./Util/install.sh
 script:
 - ./Util/build.sh
+
+notifications:
+  email: false
