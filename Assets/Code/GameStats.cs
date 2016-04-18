@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
@@ -108,7 +109,23 @@ public class GameStats : MonoBehaviour {
 	}
 
 	static string[][] readMapFromFile(string fileName){
-		string text = System.IO.File.ReadAllText(fileName);
+		
+		string text = @"1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 E 0 0 0 0 0 0 1 0 0 0 0 0 0 E 1
+1 0 1 1 0 1 1 0 1 0 1 1 0 1 1 0 1
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
+1 0 1 1 0 1 0 1 1 1 0 1 0 1 1 0 1
+1 0 0 0 0 1 0 0 1 0 0 1 0 0 0 0 1
+1 1 1 1 0 1 1 0 1 0 1 1 0 1 1 1 1
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+1 1 1 1 0 1 1 1 0 1 1 1 0 1 1 1 1
+1 0 0 0 0 1 E 0 0 0 E 1 0 0 0 0 1
+1 0 1 1 0 1 1 1 0 1 1 1 0 1 1 0 1
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1
+1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 0 1
+1 P 0 0 0 0 0 0 0 0 0 0 0 0 0 E 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1";
+//		File.ReadAllText(fileName);
 
 		string[] lines = Regex.Split(text, "\n");
 		int rows = lines.Length;
@@ -174,7 +191,8 @@ public class GameStats : MonoBehaviour {
 	}
 
 	public static void removeLife(){
-		lives--;
+		if(lives > 0)
+			lives--;
 		livesText.text = "Lives: " + lives.ToString ();
 		var p = GameStats.playerRef.GetComponent<Player> ();
 
