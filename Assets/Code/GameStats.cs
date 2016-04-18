@@ -44,6 +44,8 @@ public class GameStats : MonoBehaviour {
 	public static GUIText livesText;
 	public static GameObject playerRef;
 
+	public static bool isFinished = false;
+
 	public static int score = 0;
 	public static int totalPoints = 0;
 	public static int lives = 3;
@@ -58,6 +60,15 @@ public class GameStats : MonoBehaviour {
 	}
 
 	public static void loadData(){
+
+		isFinished = false;
+		score = 0;
+		totalPoints = 0;
+		lives = 3;
+		walls = new List<BaseObject> ();
+		points = new List<BaseObject> ();
+		enemies = new List<BaseObject> ();
+
 		map = readMapFromFile ("Assets/test.txt");
 
 		for (int y = 0; y < GameStats.map.Length; y++) {
@@ -156,7 +167,8 @@ public class GameStats : MonoBehaviour {
 		}
 
 		if (score == totalPoints) {
-			scoreText.text = "WINN!";
+			isFinished = true;
+			scoreText.text = "Winn!";
 			Time.timeScale = 0;
 		}
 	}
@@ -171,6 +183,8 @@ public class GameStats : MonoBehaviour {
 		p.target = p.transform.position;
 
 		if (lives == 0) {
+			isFinished = true;
+			scoreText.text = "Game Over!";
 			Time.timeScale = 0;
 		}
 	}

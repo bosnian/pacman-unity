@@ -12,6 +12,7 @@ public class GameSetup : MonoBehaviour {
 	public Transform pointPrefab;
 	public Transform scoreGUI;
 	public Transform livesGUI;
+	public Transform helpText;
 
 	private int offSetX = 0;
 	private int offSetY = 0;
@@ -22,7 +23,6 @@ public class GameSetup : MonoBehaviour {
 		GameStats.scoreText = scoreGUI.GetComponent<GUIText> ();
 		GameStats.livesText = livesGUI.GetComponent<GUIText> ();
 
-//		scoreGUI.position = mainCamera.ScreenToWorldPoint (new Vector3 (100,Screen.height-100,5));
 		offSetX = GameStats.map [0].Length / 2;
 		offSetY = GameStats.map.Length / 2;
 		// create planes based on matrix

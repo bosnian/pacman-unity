@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour {
 		x = 0,
 		y = 1
 	};
-	float delay = 3.0f;
+	float delay = 1.0f;
 	float stepTime = 0.5f;
 	public BaseObject direction = new BaseObject {
 		x = 1,
@@ -38,39 +38,6 @@ public class Enemy : MonoBehaviour {
 		moveBy (direction);
 	}
 		
-
-
-	void move () {
-//		direction = direction % 4;
-//		switch (direction) {
-//		case 0:
-//			moveBy (1,0);
-//			break;
-//		case 1:
-//			moveBy (0,1);
-//			break;
-//		case 2:
-//			moveBy (-1,0);
-//			break;
-//		case 3:
-//			moveBy (0,-1);
-//			break;
-//		}
-	}
-
-	List<int> getAvailableDirections(){
-		List<int> dirs = new List<int> ();
-		for (int i = 0; i < 4; i++) {
-//			if (i == direction)
-//				continue;
-
-			if(checkDirection(i)){
-				dirs.Add (i);
-			}
-		}
-		return dirs;
-	}
-
 	bool checkDirection(int it){
 		BaseObject tmpP;
 		tmpP.x = pos.x;
@@ -97,31 +64,8 @@ public class Enemy : MonoBehaviour {
 		return false;
 	}
 
-	void moveBy(int x, int y){
-//		BaseObject tmpP;
-//		tmpP.x = pos.x+x;
-//		tmpP.y = pos.y+y;
-
-//		if (!GameStats.checkIfMoveAvailable (tmpP)) {
-//			direction++;
-//		
-//			return;
-//		}
-
-		Vector3 position = this.transform.position;
-		position.x += x;
-		position.y += y;
-		pos.x += x;
-		pos.y += y;
-		this.transform.position = position;
-	}
-
 	void moveBy(BaseObject m){
 
-//		if (!GameStats.checkIfMoveAvailable (m)) {
-//			Debug.Log ("GRESKAAAA");
-//			return;
-//		}
 		Vector3 position = this.transform.position;
 		position.x += m.x;
 		position.y -= m.y;
@@ -145,22 +89,6 @@ public class Enemy : MonoBehaviour {
 
 		this.transform.position = Vector3.MoveTowards (this.transform.position, tar, step);
 	}
-
-//	void FixedUpdate(){
-//		Vector3 position = this.transform.position;
-//		Vector3 tmp = tar - position;
-//		var frames = Time.fixedDeltaTime / stepTime;
-//
-//		tmp *= frames;
-//
-//
-//		this.transform.position = Vector3.MoveTowards (this.transform.position, position + tmp, frames);
-//
-//		var delta = tar - this.transform.position;
-//		Debug.Log (delta.x + " - " + delta.y);
-//
-//	}
-
 
 	bool areTwoPointsInRange(Vector3 first, Vector3 second){
 

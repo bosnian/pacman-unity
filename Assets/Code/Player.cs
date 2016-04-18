@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class Player : MonoBehaviour {
@@ -55,6 +56,19 @@ public class Player : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.DownArrow))
 		{
 			direction = down;
+		}
+
+
+		if (Input.GetKeyDown (KeyCode.P) && !GameStats.isFinished) {
+			if (Time.timeScale == 0)
+				Time.timeScale = 1;
+			else
+				Time.timeScale = 0;
+		}
+
+		if (Input.GetKeyDown (KeyCode.R)) {
+			SceneManager.LoadScene (0);
+			Time.timeScale = 1;
 		}
 
 
@@ -133,56 +147,3 @@ public class Player : MonoBehaviour {
 		} 
 	}
 }
-
-
-//UpdateA ()
-//{
-//	if (GameStats.map == null)
-//		return;
-//
-//	var tmpP = GameStats.player;
-//
-//	if (Input.GetKeyDown(KeyCode.LeftArrow))
-//	{
-//		tmpP.x--;
-//		if (!GameStats.checkIfMoveAvailableForPlayer (tmpP))
-//			return;
-//		GameStats.player.x--;
-//		Vector3 position = this.transform.position;
-//		position.x--;
-//		this.transform.position = position;
-//	}
-//	if (Input.GetKeyDown(KeyCode.RightArrow))
-//	{
-//		tmpP.x++;
-//		if (!GameStats.checkIfMoveAvailableForPlayer (tmpP))
-//			return;
-//		GameStats.player.x++;
-//		Vector3 position = this.transform.position;
-//		position.x++;
-//		this.transform.position = position;
-//	}
-//	if (Input.GetKeyDown(KeyCode.UpArrow))
-//	{
-//		tmpP.y--;
-//		if (!GameStats.checkIfMoveAvailableForPlayer (tmpP))
-//			return;
-//		GameStats.player.y--;
-//		Vector3 position = this.transform.position;
-//		position.y++;
-//		this.transform.position = position;
-//	}
-//	if (Input.GetKeyDown(KeyCode.DownArrow))
-//	{
-//		tmpP.y++;
-//		if (!GameStats.checkIfMoveAvailableForPlayer (tmpP))
-//			return;
-//		GameStats.player.y++;
-//		Vector3 position = this.transform.position;
-//		position.y--;
-//		this.transform.position = position;
-//	}
-//
-//	this.checkForPortals ();
-//	GameStats.checkIfPointsAvailable (GameStats.player);
-//}
