@@ -7,7 +7,11 @@ script:
 - "./Util/build.sh"
 notifications:
   email: false
+before_deploy:
+  - "cd Deploy/web"
+  - "mv web.html index.html"
 deploy:
+  skip_cleanup: true
   provider: heroku
   api_key:
     secure: BIYN/BZRdJoH847dcxxoGjL2SmGOk/5bx2SALZz7xytavMeFW4U+dVdwyo4+CRdu8T6wIS3ksa0VcuOR0xoUR7yTtP5qSZmqTziPEaLP2O2aXuWGVZtF0PFw62FRRaxbkkntWxE/l0150UftiXbNsFXNSKcG8X2xanTHyFfliHtd0rmJLNyzawWdA77Zr2FsiMoWsG7dYb5RnDl9QNPhyIeLZ0fGqWMWPV2r8BrYmMtXxq65PlHrQTRNTWSjwuMhd3ZpHHACL1M78to/qdUgHuTajhr/Egni+PYYwrz1mz3TMVU8v4vNc80pbTrdPBQX1guID+aYKST7HYJqeEwNtjtIvpdzia/dJC80CBZSfhLfb2sTXN0tSxkiNvSWt4zESlWqQg0i9ayTt+8PrRPLEcguzc62oYWWGAqTMP0U1vcAhfMQw4BQKEabadKI0PNHkXSaCezov7wWA0NUinP2doSVu5JDB1BSWtrEsSiLeOW34kmgd/Ecw96hFg9Ycuurw2SgH++/x0Zp427gAx0EVveSVN9vKmW4HZv7EhT+fghyVz1f497R+3ybDEUJe+NkyXG84GJM1Agdb8Kpa7zlBmRo2bo1lDEYTsCyMMixdMXZJVRjyRW317zW6vmFEWx1yW5W2sOytJ5sK4hp2LLBZxXGW4lwk3JRmn8gz66lMVw=

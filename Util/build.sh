@@ -12,7 +12,7 @@ echo "Attempting to build $project for Web"
   -silent-crashes \
   -logFile $(pwd)/unity.log \
   -projectPath $(pwd) \
-  -buildWebPlayer "$(pwd)/Build/web" \
+  -buildWebPlayer "$(pwd)/Deploy/web" \
   -quit
 
 echo 'Logs from build'
