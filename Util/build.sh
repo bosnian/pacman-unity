@@ -13,7 +13,6 @@ echo "Attempting to build $project for Web"
   -logFile $(pwd)/unity.log \
   -projectPath $(pwd) \
   -buildWebPlayer "$(pwd)/Build/web" \
-  -buildTarget "webgl" \
   -quit
 
 echo 'Logs from build'
