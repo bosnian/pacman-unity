@@ -31,10 +31,12 @@ public class Player : MonoBehaviour {
 
 	public Vector3 target;
 
+	float delay = 1.0f;
+	float stepTime = 0.5f;
 
 	void Start(){
 		target = this.transform.position;
-		InvokeRepeating("move", 0, 1f);
+		InvokeRepeating("move", delay, stepTime);
 	}
 
 	void Update(){
@@ -74,7 +76,7 @@ public class Player : MonoBehaviour {
 
 		Vector3 position = this.transform.position;
 		GameStats.playerPos = position;
-		float step = 1f * Time.deltaTime;
+		float step = stepTime * Time.deltaTime * 4f;
 
 		this.transform.position = Vector3.MoveTowards (this.transform.position, target, step);
 	}
