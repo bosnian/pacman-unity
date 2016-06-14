@@ -25,7 +25,7 @@ public class GameSetup : MonoBehaviour {
 
 		offSetX = GameStats.map [0].Length / 2;
 		offSetY = GameStats.map.Length / 2;
-		// create planes based on matrix
+
 		var w = GameStats.map.Length;
 		var h = GameStats.map [1].Length;
 		GameStats.mapOfObjects = new List<List<GameObject>> ();

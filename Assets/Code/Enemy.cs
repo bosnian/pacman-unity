@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour {
 		x = 1,
 		y = 0
 	};
-	// Use this for initialization
+
 	void Start () {
 
 		tar = this.transform.position;

@@ -125,7 +125,7 @@ public class GameStats : MonoBehaviour {
 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 0 1
 1 P 0 0 0 0 0 0 0 0 0 0 0 0 0 E 1
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1";
-//		File.ReadAllText(fileName);
+
 
 		string[] lines = Regex.Split(text, "\n");
 		int rows = lines.Length;
